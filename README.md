@@ -62,4 +62,4 @@ TODO:
 * User submitted code 
 * Test code 
 * Add content
-* QA
+* QA on Heroku (already set up staging environment)
