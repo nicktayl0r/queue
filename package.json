@@ -1,0 +1,27 @@
+{
+  "name": "queue",
+  "version": "1.0.0",
+  "description": "Algorithm challenge and submission platform for WDI.",
+  "main": "index.js",
+  "scripts": {
+    "deploy": "npm test && git push heroku master",
+    "start": "nodemon server.js"
+  },
+  "keywords": [
+    "education",
+    "coding",
+    "WDI"
+  ],
+  "author": "Jonathan H. Tamsut",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "dotenv": "^4.0.0",
+    "express": "^4.16.2",
+    "method-override": "^2.3.10",
+    "monaco-editor": "^0.10.1",
+    "mongoose": "^5.0.1",
+    "morgan": "^1.9.0",
+    "pug": "^2.0.0-rc.4"
+  }
+}
