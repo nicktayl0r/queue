@@ -13,6 +13,7 @@ The technologies used are:
 * Express.js 
 * MongoDB (and [Mongoose](http://mongoosejs.com/docs/schematypes.html))
 * Pug
+* [CodeMirror](http://codemirror.net/doc/manual.html)
 
 ## How to Run This Locally
 
