@@ -55,7 +55,6 @@ Next, connect to MongoDB.
 
 TODO: 
 
-* Integrate Monaco text editor: https://www.npmjs.com/package/monaco-editor
 * Data model 
 * Wireframes
 * User auth 
