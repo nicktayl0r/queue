@@ -55,6 +55,21 @@ Next, connect to MongoDB.
 
 TODO: 
 
+Next steps: 
+
+* Implement challenge views and controllers 
+    - Create a table to list all challenges 
+    - Create a page so users can submit challenges 
+        -> prompt (Written and stored in markdown and converted to HTML)
+        -> text editor 
+        -> submit button 
+* How do we store tests? What library are we using to do tests?
+* How do we execute tests safely on the server?
+* Research Jest for testing
+
+
+* Need a better way to integrate CodeMirror into views (using AMD module loading)
+
 * Data model 
 * Wireframes
 * User auth 
