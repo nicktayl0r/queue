@@ -1,6 +1,9 @@
-extends layout
+extends ./../layout
 
 block content
-
-//- Page where all challenges will be listed
-//- May want pagination for this
+    ul
+        each val in challenges 
+            li 
+            a(href=`/challenges/${val._id}`) #{val.title}
+    //- Page where all challenges will be listed
+    //- May want pagination for this

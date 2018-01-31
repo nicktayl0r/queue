@@ -1,16 +1,40 @@
 const Challenge = require('./../models/Challenge');
 
 /*
-    GET a challenge
+    GET a list of all challenges
 */
-exports.challengeGet = function(req, res) {
-
+exports.getAllChallenges = function(req, res) {
+    Challenge.find({})
+    .then(function(challenges){
+        res.render('./challenges/listAllChallenges', { challenges })
+    })
+    
 }
 
 /*
-    GET a list of all challenges
+    GET a challenge
 */
-exports.challengeGetAll = function(req, res) {
-
+exports.showChallenge = function(req, res) {
+    res.render('./challenges/showChallenge');
 }
 
+/*
+    POST an answer to a challenge
+*/
+exports.submitChallenge = function(req, res) {
+    res.send('submitChallenge');
+}
+
+/*
+    GET form for a new challenge
+*/
+exports.newChallenge = function(req, res) {
+    res.send('newChallenge');
+}
+
+/*
+    POST admin creates new challenge in DB
+*/
+exports.createChallenge = function(req, res) {
+    res.send('createChallenge');
+}

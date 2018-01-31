@@ -1,1 +1,1 @@
-var myCodeMirror = CodeMirror(document.body);
+var myCodeMirror = CodeMirror(document.querySelector('.text-editor'));

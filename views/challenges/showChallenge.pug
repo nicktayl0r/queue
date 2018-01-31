@@ -1,9 +1,17 @@
 extends ../layout
 
 block content
-    script(src="js/lib/codemirror.js")
-    script(src="js/lib/javascript.js")
+    div.row 
+        div.col-4.text-editor
+            button.submit-button Submit!
+        div.col-4
+            p This is a prompt yo!
+
+    script(src="/js/lib/codemirror.js")
+    script(src="/js/lib/javascript.js")
     script
         include ./../scripts/codeMirrorLoader.js
+
+    
 
 //- Page where students will see a text editor and a prompt and will have to submit a challenge
