@@ -78,3 +78,7 @@ Next steps:
 * Test code 
 * Add content
 * QA on Heroku (already set up staging environment)
+
+### Research 
+* https://en.wikipedia.org/wiki/Connection_pool
+* http://odino.org/eval-no-more-understanding-vm-vm2-nodejs/
