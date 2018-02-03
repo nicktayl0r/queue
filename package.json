@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "deploy": "npm test && git push heroku master",
-    "start": "nodemon server.js"
+    "start": "nodemon server.js",
+    "debug": "nodemon --inspect server.js"
   },
   "keywords": [
     "education",

@@ -1,11 +1,12 @@
 extends ../layout
 
 block content
+    h1(data-challengeId=challenge._id) #{challenge.title}
     div.row 
         div.col-4.text-editor
             button.submit-button Submit!
-        div.col-4
-            p This is a prompt yo!
+        div.col-4.starter(data-starter=challenge.starterCode)
+            p !{challenge.prompt}
 
     script(src="/js/lib/codemirror.js")
     script(src="/js/lib/javascript.js")

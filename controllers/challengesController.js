@@ -15,7 +15,14 @@ exports.getAllChallenges = function(req, res) {
     GET a challenge
 */
 exports.showChallenge = function(req, res) {
-    res.render('./challenges/showChallenge');
+    Challenge.findById(req.params.challenge_id)
+    .then(function(challenge){
+        console.log(challenge)
+        res.render('./challenges/showChallenge', { challenge });
+    })
+    .catch(function(err) {
+        console.log(`Error in showChallenge action in challengesController: ${err}`);
+    })
 }
 
 /*

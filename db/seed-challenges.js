@@ -17,14 +17,14 @@ Challenge.remove({})
         {
             title: 'addOne',
             prompt: 'Write a function called <code>addOne</code> that takes an integer as input and returns one plus that integer.',
-            starterCode: 'function addOne(a) {\n// Add code here\n}',
+            starterCode: 'function addOne(a) {\n\t// Add code here\n}',
             test: 'This is a test!',
             difficulty: 'Basic'
         },
         {
             title: 'filterEvens',
             prompt: 'Write a function called <code>filterEvens</code> that takes an array of inegers as input and returns a new array with only even integers.',
-            starterCode: 'function filterEvens(arr) {\nWrite code here}',
+            starterCode: 'function filterEvens(arr) {\n\t//Write code here\n}',
             test: 'This is another test!',
             difficulty: 'Medium'
         }

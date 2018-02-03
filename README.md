@@ -78,6 +78,7 @@ Next steps:
 * Test code 
 * Add content
 * QA on Heroku (already set up staging environment)
+* Use Gulp to bundle a build version of assets
 
 ### Research 
 * https://en.wikipedia.org/wiki/Connection_pool
