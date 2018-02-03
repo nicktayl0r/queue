@@ -53,33 +53,41 @@ Next, connect to MongoDB.
 
 ## Developer Notes
 
-TODO: 
+**MVP DUE DATE: February 12th**
 
-Next steps: 
+**To Do for MVP**:
 
-* Implement challenge views and controllers 
-    - Create a table to list all challenges 
-    - Create a page so users can submit challenges 
-        -> prompt (Written and stored in markdown and converted to HTML)
-        -> text editor 
-        -> submit button 
-* How do we store tests? What library are we using to do tests?
-* How do we execute tests safely on the server?
-* Research Jest for testing
+- [] Seed database with 10 realistic challenges and tests
+    * Use Node's `vm` module to run user submitted code using tests (documentation for `vm` module found [here](https://nodejs.org/api/vm.html))
+    * Use Node `assert` module (docs found [here](https://nodejs.org/api/assert.html)) and/or use Jest to write tests. Does the `vm` module allow me to use modules and if so how?
+    * Need to handle code that has syntax errors. What's the best way to do this? `try-catch`? Can you send back user an error message?
+    * How are we going to tell the user *what* tests they failed?
+- [] Challenge view 
+     * User should see: 
+        - prompt 
+        - difficulty of challenge
+        - examples of function being used 
+- [] Use Gulp to bundle build (minified and uglified) versions of assets
+- [] Purchase production accounts for mLabs and Heroku
+- [] User login/logout 
+    * Authenticate/authorize and safely store passwords 
+    * Email password recovery and account confirmation
+- [] Clean up CodeMirror integration 
+    * Use AMD module loader
+- [] Clean up views 
+- [] Allow students to filter: 
+    * By completed 
+    * By difficulty 
 
+**Other To Dos**: 
 
-* Need a better way to integrate CodeMirror into views (using AMD module loading)
+- [] Make admin dashboard 
+    * Instructor should be able to create & save challenges using UI
+        - Write prompt, assign difficulty and write starter code 
+- [] Have the ability to group challenges into assignments
+- [] Have the ability to assign multiple choice quizzes to students
 
-* Data model 
-* Wireframes
-* User auth 
-* Email 
-* User submitted code 
-* Test code 
-* Add content
-* QA on Heroku (already set up staging environment)
-* Use Gulp to bundle a build version of assets
+## Research
 
-### Research 
 * https://en.wikipedia.org/wiki/Connection_pool
 * http://odino.org/eval-no-more-understanding-vm-vm2-nodejs/

@@ -9,7 +9,7 @@ html {
 }
 
 body {
-  background-color: #f4f4f4;;
+  background-color: #757575;
   margin-bottom: 44px;
   line-height: 1.57142857;
   font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -287,3 +287,7 @@ textarea {
   Custom styles are below 
 
 */
+
+.text-editor { 
+  padding-top: 30px;
+}

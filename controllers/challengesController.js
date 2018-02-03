@@ -1,5 +1,6 @@
 const Challenge = require('./../models/Challenge');
-
+const vm = require('vm');
+const util = require('util');
 /*
     GET a list of all challenges
 */
@@ -17,7 +18,6 @@ exports.getAllChallenges = function(req, res) {
 exports.showChallenge = function(req, res) {
     Challenge.findById(req.params.challenge_id)
     .then(function(challenge){
-        console.log(challenge)
         res.render('./challenges/showChallenge', { challenge });
     })
     .catch(function(err) {
@@ -29,7 +29,27 @@ exports.showChallenge = function(req, res) {
     POST an answer to a challenge
 */
 exports.submitChallenge = function(req, res) {
-    res.send('submitChallenge');
+    let executionString = `${req.body.code}
+        var x = addOne(5);
+    `
+    console.log(executionString);
+
+    const sandBox = { x: null };
+    try {
+        vm.createContext(sandBox);
+        vm.runInContext(executionString, sandBox);
+    
+        console.log(sandBox)
+    
+        if (sandBox.x == 6) {
+            res.json('challenge correct').status(200);
+        } else {
+            res.json('not correct! Try again!').status(200);
+        }
+    } catch(err) {
+        console.log(err);
+        res.json(JSON.stringify(err)).status(200);
+    }
 }
 
 /*
