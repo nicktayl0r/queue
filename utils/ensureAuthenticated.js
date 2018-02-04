@@ -1,0 +1,3 @@
+/*
+    Uses Passport's isAuthenticated
+*/

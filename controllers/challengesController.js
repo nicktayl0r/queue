@@ -1,6 +1,6 @@
 const Challenge = require('./../models/Challenge');
 const vm = require('vm');
-const util = require('util');
+
 /*
     GET a list of all challenges
 */

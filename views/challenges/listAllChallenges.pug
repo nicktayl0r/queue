@@ -4,6 +4,7 @@ block content
     ul
         each val in challenges 
             li 
-            a(href=`/challenges/${val._id}`) #{val.title}
+            a(href=`/challenges/${val._id}`) 
+                h3 #{val.title}
     //- Page where all challenges will be listed
     //- May want pagination for this
