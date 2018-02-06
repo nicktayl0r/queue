@@ -59,11 +59,11 @@ exports.postSignup = function(req, res, next) {
             return res.redirect('/signup');
         }
 
-        user = new User({
-            profile.name: req.body.name, 
-            email: req.body.email, 
-            password: req.body.password
-        });
+        // Create new user
+        user = new User();
+        user.profile.name = req.body.name;
+        user.profile.email = req.body.email;
+        user.profile.password = req.body.password;
 
         user.save()
         .then(function(err) {

@@ -20,6 +20,14 @@ block content
           .form-group
             label(for='password') Password
             input.form-control(type='password', name='password', id='password', placeholder='Password')
+          .form-group
+            label(for='githubURL') GitHub URL
+            input.form-control(type='url', name='githubURL', placeholder='https://github.com/user')
+          .form-group 
+            label(for='cohort') Cohort 
+            select.form-control
+              option(default) WDI-DT-X 
+              option WDI-DT-57
           button.btn.btn-success(type='submit') Create an account
 
         .btn-toolbar.text-center

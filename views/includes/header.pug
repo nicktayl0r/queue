@@ -9,12 +9,13 @@ nav.navbar.navbar-default.navbar-static-top
       a.navbar-brand(href='/') Queue
     #navbar.navbar-collapse.collapse
       ul.nav.navbar-nav
-        li(class=(title == 'Home') ? 'active' : null)
-          a(href='/challenges') Challenges
-        li(class=(title == 'Contact') ? 'active' : null)
-          a(href='/contact') Solved Challenges
-        li(class=(title == 'Contact') ? 'active' : null)
-          a(href='/contact') Unsolved Challenges
+        if user 
+          li(class=(title == 'Home') ? 'active' : null)
+            a(href='/challenges') Challenges
+          li(class=(title == 'Contact') ? 'active' : null)
+            a(href='/contact') Solved Challenges
+          li(class=(title == 'Contact') ? 'active' : null)
+            a(href='/contact') Unsolved Challenges
       ul.nav.navbar-nav.navbar-right
         if user
           li.dropdown
