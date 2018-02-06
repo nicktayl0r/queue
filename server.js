@@ -12,6 +12,9 @@ const session = require('express-session');
 // Import .env file 
 dotenv.config({ path: '.env' });
 
+// Require passport configuration 
+require('./config/passport');
+
 // Import routes
 const userRoutes = require('./routes/users.js');
 const challengeRoutes = require('./routes/challenges.js');
