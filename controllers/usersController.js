@@ -1,5 +1,6 @@
 const User = require('./../models/User');
 const passport = require('passport');
+const validator = require('express-validator');
 
 /*
     GET '/' view
@@ -16,62 +17,69 @@ exports.handleRoot = function(req, res) {
     GET '/login' page
 */
 exports.login = function(req, res) {
+    if (req.user) {
+        res.redirect('/challenges');
+    }
+
     res.render('./account/login');
-
 }
 
-/* 
-    POST a request to log in
+/*
+    GET '/signup' page
 */
-exports.postLogin = function(req, res) {
-    passport.authenticate('local', function(req, res) {
-       if (err) { return next(err) } 
-       if (!user) {
-           req.flash('errors', info.message);
-           return res.redirect('/login');
-       }
-       req.logIn(user, function(err) {
-           if (err) { return next(err); }
-           req.flash('success', { msg: 'Success! You are logged in!' });
-           res.redirect(req.session.returnTo || '/');
-       });
-    })(req, res, next)
-}
-
 exports.signup = function(req, res) {
+    if (req.user) {
+        return res.redirect('/login');
+    }
     res.render('./account/signup');
 }
 
-exports.postSignup = function(req, res) {
-    
-    const user = new User({
-        email: req.body.email,
-        password: req.body.password
-    })
+/* 
+    POST a request to '/signup' route
+*/
+exports.postSignup = function(req, res, next) {
+    req.assert('name', 'Name cannot be blank').notEmpty();
+    req.assert('email', 'Email is not valid').isEmail();
+    req.assert('email', 'Email cannot be blank').notEmpty();
+    req.assert('password', 'Password cannot be blank').notEmpty();
+    req.sanitize('email').normalizeEmail({ remove_dots: false });
+
+    let errors = req.validationErrors();
+
+    if (errors) {
+        req.flash('error', errors);
+        return res.redirect('/signup');
+    }
 
     User.findOne({ email: req.body.email })
-    .then(function(existingUser) {
-        if (existingUser) {
-            req.flash('errors', { msg: 'Account with that email address that already exists.' })
+    .then(function(user) {
+        
+        if (user) {
+            req.flash('error', { msg: 'The email address you have entered is already associated with another account.' });
             return res.redirect('/signup');
         }
 
-        const saved = user.save()
-        saved.then(function(err) {
-            if (err) { return next(err) }
+        user = new User({
+            profile.name: req.body.name, 
+            email: req.body.email, 
+            password: req.body.password
+        });
+
+        user.save()
+        .then(function(err) {
             req.login(user, function(err) {
-                if (err) {
-                    return next(err);
-                }
-                res.redirect('/');
-            })
-        })
-        
+                res.redirect('/challenges');
+            });
+        });
     })
     .catch(function(err) {
-        req.flash('errors', { msg: 'An error occurred while signing up. Please try again!' })
-        return res.redirect('/signup');
-    })
+        console.log(`Got the following err: ${err}`);
+        res.render('./account/signup');
+    });
+};
 
+
+exports.postLogin = function(req, res) {
+    res.send('hi');
 }
 
