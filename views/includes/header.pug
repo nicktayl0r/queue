@@ -10,12 +10,12 @@ nav.navbar.navbar-default.navbar-static-top
     #navbar.navbar-collapse.collapse
       ul.nav.navbar-nav
         if user 
-          li(class=(title == 'Home') ? 'active' : null)
+          li
             a(href='/challenges') Challenges
-          li(class=(title == 'Contact') ? 'active' : null)
-            a(href='/contact') Solved Challenges
-          li(class=(title == 'Contact') ? 'active' : null)
-            a(href='/contact') Unsolved Challenges
+          li
+            a(href='#') Solved Challenges
+          li
+            a(href='#') Unsolved Challenges
       ul.nav.navbar-nav.navbar-right
         if user
           li.dropdown
