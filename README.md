@@ -53,7 +53,7 @@ Next, connect to MongoDB.
 
 ## Developer Notes
 
-**MVP DUE DATE: February 12th**
+**MVP DUE DATE: February 20th**
 
 **To Do for MVP**:
 

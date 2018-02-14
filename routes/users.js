@@ -1,28 +1,27 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const users = require('./../controllers/usersController');
+const users = require("./../controllers/usersController");
 
-router.get('/', users.handleRoot);
+router.get("/", users.handleRoot);
 
 /*
     login route
 */
-router.get('/login', users.login);
-
-/*
-    logout route
-*/
-// router.get('/logout', users.logout);
+router.get("/login", users.login);
 
 /*
     View signup page route
 */
-router.get('/signup', users.signup);
+router.get("/signup", users.signup);
 
 /*
     User sign up
 */
-router.post('/signup', users.postSignup);
+router.post("/signup", users.postSignup);
 
+/*
+    logout route
+*/
+router.post("/login", users.postLogin);
 
 module.exports = router;
