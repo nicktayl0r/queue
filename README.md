@@ -94,8 +94,8 @@ The credentials of a test user:
 - [ ] Make admin dashboard 
     * Instructor should be able to create & save challenges using UI
         - Write prompt, assign difficulty and write starter code 
-- [] Have the ability to group challenges into assignments
-- [] Have the ability to assign multiple choice quizzes to students
+- [ ] Have the ability to group challenges into assignments
+- [ ] Have the ability to assign multiple choice quizzes to students
 
 ## Research
 
