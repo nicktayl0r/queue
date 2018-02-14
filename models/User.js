@@ -20,7 +20,7 @@ const userSchema = new mongoose.Schema(
     profile: {
       name: String,
       cohort: String,
-      gitHubURL: String
+      githuburl: String
     }
   },
   {

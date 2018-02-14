@@ -39,6 +39,7 @@ exports.postSignup = function(req, res, next) {
   req.assert("name", "Name cannot be blank").notEmpty();
   req.assert("email", "Email is not valid").isEmail();
   req.assert("email", "Email cannot be blank").notEmpty();
+  req.assert("githuburl", "GitHub URL cannot be blank.").notEmpty();
   req.assert("password", "Password cannot be blank").notEmpty();
   req.sanitize("email").normalizeEmail({ remove_dots: false });
 
@@ -64,7 +65,7 @@ exports.postSignup = function(req, res, next) {
       user = new User();
       user.profile.name = req.body.name;
       user.profile.cohort = req.body.cohort;
-      user.profile.gitHubURL = req.body.githHubURL;
+      user.profile.githuburl = req.body.githuburl;
       user.password = req.body.password;
       user.email = req.body.email;
 

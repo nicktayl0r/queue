@@ -51,6 +51,16 @@ Next, connect to MongoDB.
 > require("./config/database")
 ```
 
+## Testing Credentials 
+
+The credentials of a test user: 
+
+* Name: Jane Doe 
+* Password: password1
+* Email: email@email.org
+* GitHub URL: https://github.com/jtamsut
+* Cohort: WDI-DT-57
+
 ## Developer Notes
 
 **MVP DUE DATE: February 20th**
