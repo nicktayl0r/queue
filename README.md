@@ -75,8 +75,6 @@ The credentials of a test user:
 **To Do for MVP**:
 
 - [ ] Seed database with 10 realistic challenges and tests
-    * Use Node's `vm` module to run user submitted code using tests (documentation for `vm` module found [here](https://nodejs.org/api/vm.html))
-    * Use Node `assert` module (docs found [here](https://nodejs.org/api/assert.html)) and/or use Jest to write tests. Does the `vm` module allow me to use modules and if so how?
     * Need to handle code that has syntax errors. What's the best way to do this? `try-catch`? Can you send back user an error message?
     * How are we going to tell the user *what* tests they failed?
 - [ ] Challenge view 
@@ -84,17 +82,19 @@ The credentials of a test user:
         - prompt 
         - difficulty of challenge
         - examples of function being used 
-- [ ] Use Gulp to bundle build (minified and uglified) versions of assets
+- [ ] Use Webpack to bundle build (minified and uglified) versions of assets
 - [ ] Purchase production accounts for mLabs and Heroku
 - [ ] User login/logout 
     * Authenticate/authorize and safely store passwords 
     * Email password recovery and account confirmation
 - [ ] Clean up CodeMirror integration 
-    * Use AMD module loader
+    * Use webpack to bundle all assets
 - [ ] Clean up views 
 - [ ] Allow students to filter: 
     * By completed 
-    * By difficulty 
+    * By difficulty
+- [ ] Display incorrect questions 
+- [ ] Create admin dashboard to add problems and tests
 
 **Other To Dos**: 
 

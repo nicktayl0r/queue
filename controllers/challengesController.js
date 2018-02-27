@@ -34,32 +34,37 @@ exports.showChallenge = function(req, res) {
 exports.submitChallenge = function(req, res) {
   Challenge.findById(req.params.challenge_id)
     .then(function(challenge) {
-      // Copy of function signature to create sandbox
-      let sandbox = _.cloneDeep(challenge.functionSignatures.toObject());
+      try {
+        // Copy of function signature to create sandbox
+        let sandbox = _.cloneDeep(challenge.functionSignatures.toObject());
 
-      // Create test string
-      let testString = `${req.body.code}\n${generateChallengeScript(
-        challenge.title,
-        sandbox
-      )}`;
-
-      // Create new script
-      let script = new vm.Script(testString);
-
-      // Create context with sandbox and test string
-      let context = vm.createContext(sandbox);
-
-      // Run script in context
-      script.runInContext(context, { timeout: 1000, displayErrors: true });
-
-      // Respond with user feedback
-      res.json(
-        correct(
+        // Create test string
+        let testString = `${req.body.code}\n${generateChallengeScript(
           challenge.title,
-          sandbox,
-          challenge.functionSignatures.toObject()
-        )
-      );
+          sandbox
+        )}`;
+
+        // Create new script
+        let script = new vm.Script(testString);
+
+        // Create context with sandbox and test string
+        let context = vm.createContext(sandbox);
+
+        // Run script in context
+        script.runInContext(context, { timeout: 1000, displayErrors: true });
+
+        // Respond with user feedback
+        res.json(
+          correct(
+            challenge.title,
+            sandbox,
+            challenge.functionSignatures.toObject()
+          )
+        );
+      } catch (err) {
+        console.log(`Error with student submitted code is: ${err}`);
+        res.json({ name: err.name, message: err.message });
+      }
     })
     .catch(function(err) {
       console.log(err);
