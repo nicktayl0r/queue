@@ -13,7 +13,7 @@ const challengeSchema = new mongoose.Schema(
       type: Boolean,
       default: false
     },
-    testResults: {
+    functionSignatures: {
       test0: {
         input: {
           type: mongoose.Schema.Types.Mixed,

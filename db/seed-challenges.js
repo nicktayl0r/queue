@@ -21,7 +21,7 @@ Challenge.remove({})
         starterCode: "function addOne(a) {\n\t// Add code here\n}",
         difficulty: "Basic",
         revealed: true,
-        testResults: {
+        functionSignatures: {
           test0: {
             input: 2,
             output: 3

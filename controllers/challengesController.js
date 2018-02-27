@@ -1,6 +1,6 @@
 const Challenge = require("./../models/Challenge");
 const vm = require("vm");
-const cloneDeep = require("lodash").cloneDeep;
+const _ = require("lodash");
 const correct = require("./../utils/correct");
 const generateChallengeScript = require("./../utils/generateChallengeScript");
 
@@ -34,20 +34,32 @@ exports.showChallenge = function(req, res) {
 exports.submitChallenge = function(req, res) {
   Challenge.findById(req.params.challenge_id)
     .then(function(challenge) {
-      let tests = challenge.testResults.toObject();
-      let sandBoxedCode = `${req.body.code}\n${generateChallengeScript(
-        challenge.title,
-        tests
-      )}`;
-      let script = new vm.Script(sandBoxedCode);
-      let correctCopy = cloneDeep(tests);
-      let context = vm.createContext(tests);
+      // Copy of function signature to create sandbox
+      let sandbox = _.cloneDeep(challenge.functionSignatures.toObject());
 
+      // Create test string
+      let testString = `${req.body.code}\n${generateChallengeScript(
+        challenge.title,
+        sandbox
+      )}`;
+
+      // Create new script
+      let script = new vm.Script(testString);
+
+      // Create context with sandbox and test string
+      let context = vm.createContext(sandbox);
+
+      // Run script in context
       script.runInContext(context, { timeout: 1000, displayErrors: true });
 
-      console.log(tests);
-      correct(tests, correctCopy);
-      res.json("cats");
+      // Respond with user feedback
+      res.json(
+        correct(
+          challenge.title,
+          sandbox,
+          challenge.functionSignatures.toObject()
+        )
+      );
     })
     .catch(function(err) {
       console.log(err);
