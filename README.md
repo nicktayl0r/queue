@@ -111,11 +111,6 @@ The credentials of a test user:
 * https://en.wikipedia.org/wiki/Connection_pool
 * http://odino.org/eval-no-more-understanding-vm-vm2-nodejs/
 
-## Style 
-
-* Use single-quotes(`''`) and back-ticks for strings
-* Only use arrow functions for one-liners and when you want to preserve lexical scope. Use function declarations whenever possible.
-
 <!-- 
 
 Store session in DB -> sessions collections
