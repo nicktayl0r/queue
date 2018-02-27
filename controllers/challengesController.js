@@ -1,5 +1,8 @@
 const Challenge = require("./../models/Challenge");
 const vm = require("vm");
+const cloneDeep = require("lodash").cloneDeep;
+const correct = require("./../utils/correct");
+const generateChallengeScript = require("./../utils/generateChallengeScript");
 
 /*
     GET a list of all challenges
@@ -29,27 +32,27 @@ exports.showChallenge = function(req, res) {
     POST an answer to a challenge
 */
 exports.submitChallenge = function(req, res) {
-  let executionString = `${req.body.code}
-        var x = addOne(5);
-    `;
-  console.log(executionString);
+  Challenge.findById(req.params.challenge_id)
+    .then(function(challenge) {
+      let tests = challenge.testResults.toObject();
+      let sandBoxedCode = `${req.body.code}\n${generateChallengeScript(
+        challenge.title,
+        tests
+      )}`;
+      let script = new vm.Script(sandBoxedCode);
+      let correctCopy = cloneDeep(tests);
+      let context = vm.createContext(tests);
 
-  const sandBox = { x: null };
-  try {
-    vm.createContext(sandBox);
-    vm.runInContext(executionString, sandBox);
+      script.runInContext(context, { timeout: 1000, displayErrors: true });
 
-    console.log(sandBox);
-
-    if (sandBox.x == 6) {
-      res.json("challenge correct").status(200);
-    } else {
-      res.json("not correct! Try again!").status(200);
-    }
-  } catch (err) {
-    console.log(err);
-    res.json(JSON.stringify(err)).status(200);
-  }
+      console.log(tests);
+      correct(tests, correctCopy);
+      res.json("cats");
+    })
+    .catch(function(err) {
+      console.log(err);
+      res.json(JSON.stringify(err)).status(200);
+    });
 };
 
 /*

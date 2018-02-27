@@ -23,6 +23,7 @@
     "express-flash": "0.0.2",
     "express-session": "^1.15.6",
     "express-validator": "^4.3.0",
+    "lodash": "^4.17.5",
     "method-override": "^2.3.10",
     "mongoose": "^5.0.1",
     "morgan": "^1.9.0",

@@ -15,11 +15,7 @@ router.get("/challenges/:challenge_id", isLoggedIn, challenges.showChallenge);
 /*
     POST /challenges/:challenge_id : Student submit answer to challenge
 */
-router.post(
-  "/challenges/:challenge_id",
-  isLoggedIn,
-  challenges.submitChallenge
-);
+router.post("/challenges/:challenge_id", challenges.submitChallenge);
 
 /*
     GET /challenge/new : New challenge 

@@ -1,10 +1,18 @@
 extends ./../layout
 
 block content
-    ul
-        each val in challenges 
-            li 
-            a(href=`/challenges/${val._id}`) 
-                h3 #{val.title}
-    //- Page where all challenges will be listed
-    //- May want pagination for this
+    h1 Challenges
+
+    table.table.table-striped.table-bordered 
+        tr
+            th Challenge Name 
+            th Difficulty
+            th Description
+            th Due Date
+        each challenge in challenges 
+            tr
+                td 
+                    a(href=`/challenges/${challenge.id}`) #{challenge.title} 
+                td #{challenge.difficulty}
+                td Fun challenge
+                td October 3, 2018

@@ -51,7 +51,14 @@ Next, connect to MongoDB.
 > require("./config/database")
 ```
 
-## Testing Credentials 
+## Testing 
+
+* All challenges must have 10 tests associated with them 
+* Tests must be complete
+    - All possible input types 
+* All functions will tested by *at most* 12 tests
+
+## Development Credentials 
 
 The credentials of a test user: 
 
@@ -96,6 +103,8 @@ The credentials of a test user:
         - Write prompt, assign difficulty and write starter code 
 - [ ] Have the ability to group challenges into assignments
 - [ ] Have the ability to assign multiple choice quizzes to students
+- [ ] Use Docker to set up virtual environments to test code in other languages/using other frameworks
+- [ ] Show test cases to client
 
 ## Research
 
@@ -106,3 +115,8 @@ The credentials of a test user:
 
 * Use single-quotes(`''`) and back-ticks for strings
 * Only use arrow functions for one-liners and when you want to preserve lexical scope. Use function declarations whenever possible.
+
+<!-- 
+
+Store session in DB -> sessions collections
+ -->
