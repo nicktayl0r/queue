@@ -76,7 +76,7 @@ exports.submitChallenge = function(req, res) {
     GET form for a new challenge
 */
 exports.newChallenge = function(req, res) {
-  res.send("newChallenge");
+  res.render("./challenges/newChallenge");
 };
 
 /*

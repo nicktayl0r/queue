@@ -1,0 +1,28 @@
+extends ./../layout
+
+block content
+    h1 Create Challenge 
+
+    form(method='POST' action='/challenges')
+        legend Create a new challenge below...
+
+        .form-group
+            label.control-label(for='challenge_name') Challenge Name
+            input.form-control(type='challenge_name', name='challenge_name', id='challenge_name', placeholder='Challenge Name', autofocus=true)
+
+        .form-group
+            label.control-label(for='prompt') Prompt
+            textarea.form-control(type='prompt', name='prompt', id='prompt', placeholder='Write prompt here...')
+
+        .form-group
+            label.control-label(for='starter_code') Starter Code
+            textarea.form-control(type='starter_code', name='starter_code', id='starter_code', placeholder='Add starter code here...')
+
+        .form-group 
+            label.control-label(for='Difficulty') Difficulty
+            select.form-control
+                option Basic
+                option Medium
+                option Advanced
+
+        button.btn.btn-success(type='submit') Create New Challenge

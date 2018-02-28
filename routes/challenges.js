@@ -8,6 +8,11 @@ const isLoggedIn = require("./../utils/isLoggedIn");
 router.get("/challenges", isLoggedIn, challenges.getAllChallenges);
 
 /*
+    GET /challenge/new : New challenge 
+*/
+router.get("/challenges/new", isLoggedIn, challenges.newChallenge);
+
+/*
     GET /challenges/:challenge_id : Show particular challenge
 */
 router.get("/challenges/:challenge_id", isLoggedIn, challenges.showChallenge);
@@ -16,11 +21,6 @@ router.get("/challenges/:challenge_id", isLoggedIn, challenges.showChallenge);
     POST /challenges/:challenge_id : Student submit answer to challenge
 */
 router.post("/challenges/:challenge_id", challenges.submitChallenge);
-
-/*
-    GET /challenge/new : New challenge 
-*/
-router.get("/challenges/new", isLoggedIn, challenges.newChallenge);
 
 /*
     POST /challenge : Save new challenge in DB
