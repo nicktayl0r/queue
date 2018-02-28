@@ -7,8 +7,13 @@ function generateChallengeScript(challengeName, tests) {
   let challengeScript = "";
   for (let key in tests) {
     if (tests[key] !== undefined) {
-      challengeScript += `var ${key} = ${challengeName}(${tests[key]
-        .input});\n`;
+      if (Array.isArray(tests[key])) {
+        challengeScript += `var ${key} = ${challengeName}([${tests[key]
+          .input}]);\n`;
+      } else {
+        challengeScript += `var ${key} = ${challengeName}(${tests[key]
+          .input});\n`;
+      }
     }
   }
   return challengeScript;

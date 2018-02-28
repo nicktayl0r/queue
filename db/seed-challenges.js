@@ -2,7 +2,7 @@ const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 
 // load ENV variables
-dotenv.config({ path: "./../.env" });
+dotenv.config();
 
 // First we require our database
 require("./../config/database");
@@ -43,10 +43,28 @@ Challenge.remove({})
       {
         title: "filterEvens",
         prompt:
-          "Write a function called <code>filterEvens</code> that takes an array of inegers as input and returns a new array with only even integers.",
+          "Write a function called <code>filterEvens</code> that takes an array of integers as input and returns a new array with only even integers.",
         starterCode: "function filterEvens(arr) {\n\t//Write code here\n}",
         test: "This is another test!",
-        difficulty: "Medium"
+        difficulty: "Medium",
+        functionSignatures: {
+          test0: {
+            input: [1, 2, 3],
+            output: [2]
+          },
+          test1: {
+            input: [100, 25, 63, 20],
+            output: [100, 20]
+          },
+          test2: {
+            input: [1, 8],
+            output: [8]
+          },
+          test3: {
+            input: [2, 3, 2],
+            output: [2, 2]
+          }
+        }
       }
     ]);
   })
