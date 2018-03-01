@@ -88,7 +88,7 @@ The credentials of a test user:
     * Authenticate/authorize and safely store passwords 
     * Email password recovery and account confirmation
 - [ ] Clean up CodeMirror integration 
-    * Use webpack to bundle all assets
+    * Use [webpack](https://webpack.js.org/concepts/) to bundle all assets
 - [ ] Clean up views 
 - [ ] Allow students to filter: 
     * By completed 
