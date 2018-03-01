@@ -105,6 +105,7 @@ The credentials of a test user:
 - [ ] Have the ability to assign multiple choice quizzes to students
 - [ ] Use Docker to set up virtual environments to test code in other languages/using other frameworks
 - [ ] Show test cases to client
+- [ ] Add project week signup 
 
 ## Research
 
