@@ -82,7 +82,7 @@ The credentials of a test user:
         - prompt 
         - difficulty of challenge
         - examples of function being used 
-- [ ] Use Webpack to bundle build (minified and uglified) versions of assets
+- [ ] Use Gulp to bundle build (minified and uglified) versions of assets
 - [ ] Purchase production accounts for mLabs and Heroku
 - [ ] User login/logout 
     * Authenticate/authorize and safely store passwords 
