@@ -53,7 +53,7 @@ app.use(function(req, res, next) {
 app.disable("x-powered-by");
 
 // Serve static assets
-app.use(express.static(path.join(__dirname, "dist")));
+app.use(express.static(path.join(__dirname, "public")));
 
 // Mount routes below
 app.use("/", userRoutes);

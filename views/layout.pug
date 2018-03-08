@@ -5,18 +5,14 @@ html
     meta(http-equiv='x-ua-compatible', content='ie=edge')
     meta(name='viewport', content='width=device-width, initial-scale=1')
     title Queue
-    script(async, defer, src='/bundle.js')
-    //- link(rel='stylesheet', href='/css/vendor/bootstrap.css')
-    //- link(rel='stylesheet', href='/css/vendor/codemirror.css')
-    //- link(rel='stylesheet', href='/css/main.css')
-  body
-    include includes/header
-    
-    div.container
-      block content
-    
-    include includes/footer
+    script(async, defer, src='/js/bundle.js')
+    link(rel='stylesheet', href='/css/vendor/normalize.css')
+    link(rel='stylesheet', href='/css/vendor/skeleton.css')
+    link(rel='stylesheet', href='/css/vendor/codemirror.css')
+    link(rel='stylesheet', href='/css/main.css')
 
-    script(src='/js/lib/jquery.js')
-    script(src='/js/lib/bootstrap.js')
-    script(src='/js/main.js')
+  body
+      include includes/header
+      div.container    
+        block content
+      include includes/footer

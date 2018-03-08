@@ -1,3 +1,9 @@
+import CodeMirror from "./lib/codemirror";
+import syntaxHighlighting from "./lib/jsSyntaxHighlighting";
+
+// make CodeMirror available on the window
+window.CodeMirror = CodeMirror;
+
 var x;
 const myCodeMirror = new CodeMirror(document.querySelector(".text-editor"), {
   value: document.querySelector(".starter").dataset.starter,

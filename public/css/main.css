@@ -1,5 +1,3 @@
-@import url("//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800%7CRaleway:100,300,600,700,800");
-
 /* Scaffolding
 /* ------------------------- */
 
@@ -345,4 +343,33 @@ textarea {
   100% {
     box-shadow: inset 0px 0px 0px 30px #7ac142;
   }
+}
+
+.q-nav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.q-nav img {
+  height: 50px;
+}
+
+.q-nav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  height: 50px;
+}
+
+.q-nav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.q-nav a.active {
+  background-color: #4CAF50;
+  color: white;
 }
