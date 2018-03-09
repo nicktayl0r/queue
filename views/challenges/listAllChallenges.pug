@@ -5,14 +5,12 @@ block content
 
     table.table.table-striped.table-bordered 
         tr
-            th Challenge Name 
+            th Title
             th Difficulty
-            th Description
             th Due Date
         each challenge in challenges 
             tr
                 td 
                     a(href=`/challenges/${challenge.id}`) #{challenge.title} 
                 td #{challenge.difficulty}
-                td Fun challenge
-                td October 3, 2018
+                td #{challenge.due}
