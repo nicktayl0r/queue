@@ -2,7 +2,7 @@ extends ../layout
 
 block content
     .row 
-        .col-lg-8.text-editor
+        textarea.col-lg-8.text-editor
         .col-sm-4.starter(data-starter=challenge.starterCode, data-cid=challenge._id)
             h1 #{challenge.title} - #{challenge.difficulty}
             p !{challenge.prompt}
